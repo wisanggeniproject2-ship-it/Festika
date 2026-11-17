@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T-RISE | Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="nav-brand">
+             <div class="logo-icon">
+                    <div class="logo">
+    <img src="logo.png" alt="T-RISE - Public Speaking & Pengembangan Diri">
+</div>
+                   
+                </div>
+                <span class="tagline">Public Speaking & Pengembangan Diri</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="beranda.html" class="nav-link">Beranda</a>
+                <a href="materi.html" class="nav-link">Materi</a>
+                <a href="quiz.html" class="nav-link active">Quiz</a>
+                <a href="edukasi.html" class="nav-link">Edukasi</a>
+                <button id="logoutBtn" class="btn-logout">Logout</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <h1 class="page-title">Quiz Public Speaking</h1>
+            <p class="page-subtitle">Uji pemahaman Anda tentang public speaking dengan quiz interaktif ini.</p>
+            
+            <div id="quizContainer" class="quiz-container">
+                <div id="startScreen" class="quiz-start">
+                    <h2>Selamat Datang di Quiz Public Speaking</h2>
+                    <p>Quiz ini terdiri dari 5 pertanyaan pilihan ganda tentang public speaking.</p>
+                    <button id="startQuiz" class="btn-primary">Mulai Quiz</button>
+                </div>
+                
+                <div id="quizScreen" class="quiz-screen hidden">
+                    <div class="quiz-progress">
+                        <div class="progress-bar">
+                            <div id="progressFill" class="progress-fill"></div>
+                        </div>
+                        <span id="progressText">Pertanyaan 1 dari 5</span>
+                    </div>
+                    
+                    <div class="quiz-question">
+                        <h2 id="questionText"></h2>
+                        <div id="optionsContainer" class="quiz-options"></div>
+                    </div>
+                    
+                    <div class="quiz-navigation">
+                        <button id="nextBtn" class="btn-primary">Selanjutnya</button>
+                    </div>
+                </div>
+                
+                <div id="resultScreen" class="quiz-result hidden">
+                    <h2>Hasil Quiz Anda</h2>
+                    <div id="scoreDisplay" class="score-display">
+                        <div class="score-circle">
+                            <span id="scoreValue">0</span>
+                            <span class="score-label">dari 100</span>
+                        </div>
+                    </div>
+                    <p id="resultMessage" class="result-message"></p>
+                    <div class="result-actions">
+                        <button id="restartQuiz" class="btn-primary">Ulangi Quiz</button>
+                        <a href="materi.html" class="btn-secondary">Pelajari Materi</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 T-Rise. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="protect.js"></script>
+    <script src="quiz.js"></script>
+    <script>
+        document.getElementById('logoutBtn').addEventListener('click', function() {
+            localStorage.removeItem('isLoggedIn');
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html>

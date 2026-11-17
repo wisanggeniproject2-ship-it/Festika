@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T-RISE | Login</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="login-page">
+    <!-- Simple Background Elements -->
+    <div class="login-bg-elements">
+        <div class="bg-circle bg-circle-1"></div>
+        <div class="bg-circle bg-circle-2"></div>
+        <div class="bg-circle bg-circle-3"></div>
+    </div>
+
+    <div class="login-container">
+        <!-- Welcome Side -->
+        <div class="welcome-side">
+            <div class="welcome-content">
+                <div class="welcome-logo">
+                    <div class="logo">
+                        <img src="logo.png" alt="T-RISE" class="logo-img">
+                    </div>
+                </div>
+                
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-microphone"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Teknik Profesional</h4>
+                            <p>Pelajari dari para ahli</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Kepercayaan Diri</h4>
+                            <p>Bangun mental yang kuat</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Progress Tracking</h4>
+                            <p>Pantau perkembangan Anda</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Login Side -->
+        <div class="login-side">
+            <div class="login-card">
+                <div class="login-header">
+                    <h2>Masuk ke Akun</h2>
+                    <p>Silakan login untuk melanjutkan</p>
+                </div>
+                
+                <form id="loginForm" class="login-form">
+                    <div class="input-group">
+                        <div class="input-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <input type="text" id="username" placeholder="Username" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <div class="input-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <input type="password" id="password" placeholder="Password" required>
+                    </div>
+                    
+                    <button type="submit" class="btn-login">
+                        <span>Masuk</span>
+                    </button>
+                    
+                    <div class="demo-account">
+                        <p>Akun demo: <strong>user</strong> / <strong>password</strong></p>
+                    </div>
+                </form>
+                
+                <div id="notification" class="notification hidden"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="login.js"></script>
+</body>
+</html>

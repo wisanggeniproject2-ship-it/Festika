@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T-RISE | Edukasi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="nav-brand">
+               <div class="logo-icon">
+                    <div class="logo">
+    <img src="logo.png" alt="T-RISE - Public Speaking & Pengembangan Diri">
+</div>
+                  
+                </div>
+                <span class="tagline">Public Speaking & Pengembangan Diri</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="beranda.html" class="nav-link">Beranda</a>
+                <a href="materi.html" class="nav-link">Materi</a>
+                <a href="quiz.html" class="nav-link">Quiz</a>
+                <a href="edukasi.html" class="nav-link active">Edukasi</a>
+                <button id="logoutBtn" class="btn-logout">Logout</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <h1 class="page-title">Artikel & Tips Edukasi</h1>
+            
+            <div class="articles-grid">
+                <article class="article-card">
+                    <div class="article-image">
+                        <div class="image-placeholder">📝</div>
+                    </div>
+                    <div class="article-content">
+                        <h2>5 Kesalahan Umum dalam Public Speaking</h2>
+                        <p class="article-meta">Dipublikasikan: 15 November 2023</p>
+                        <p class="article-excerpt">
+                            Banyak pembicara pemula melakukan kesalahan yang sama. Pelajari kesalahan umum 
+                            dalam public speaking dan strategi untuk menghindarinya...
+                        </p>
+                        <a href="edukasi-kesalahan-public-speaking.html" class="article-link">Baca Selengkapnya →</a>
+                    </div>
+                </article>
+                
+                <article class="article-card">
+                    <div class="article-image">
+                        <div class="image-placeholder">🧠</div>
+                    </div>
+                    <div class="article-content">
+                        <h2>Membangun Kepercayaan Diri</h2>
+                        <p class="article-meta">Dipublikasikan: 10 November 2023</p>
+                        <p class="article-excerpt">
+                            Kepercayaan diri adalah kunci sukses dalam public speaking. Temukan teknik 
+                            praktis untuk membangun dan mempertahankan kepercayaan diri...
+                        </p>
+                        <a href="edukasi-kepercayaan-diri.html" class="article-link">Baca Selengkapnya →</a>
+                    </div>
+                </article>
+                
+                <article class="article-card">
+                    <div class="article-image">
+                        <div class="image-placeholder">🎯</div>
+                    </div>
+                    <div class="article-content">
+                        <h2>Teknik Storytelling untuk Presentasi</h2>
+                        <p class="article-meta">Dipublikasikan: 5 November 2023</p>
+                        <p class="article-excerpt">
+                            Cerita adalah alat yang ampuh untuk menarik perhatian audiens. Pelajari cara 
+                            menyusun dan menyampaikan cerita yang efektif...
+                        </p>
+                        <a href="edukasi-teknik-storytelling.html" class="article-link">Baca Selengkapnya →</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 T-Rise. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="protect.js"></script>
+    <script>
+        document.getElementById('logoutBtn').addEventListener('click', function() {
+            localStorage.removeItem('isLoggedIn');
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html>
