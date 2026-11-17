@@ -94,41 +94,52 @@
     </footer>
 
     <script src="protect.js"></script>
+        <script src="protect.js"></script>
     <script>
-        
-(function () {
-  const toggle = document.getElementById('navToggle');
-  const menu = document.getElementById('navMenu');
-  if (!toggle || !menu) return;
+        // --- 1. LOGIKA HAMBURGER MENU (MOBILE) ---
+        (function () {
+            const toggle = document.getElementById('navToggle');
+            const menu = document.getElementById('navMenu');
+            if (!toggle || !menu) return;
 
-  toggle.addEventListener('click', function () {
-    const open = menu.classList.toggle('is-open');
-    toggle.classList.toggle('is-open', open);
-    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-  });
+            toggle.addEventListener('click', function () {
+                const open = menu.classList.toggle('is-open');
+                toggle.classList.toggle('is-open', open);
+                toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+            });
 
-  // Tutup menu jika link diklik
-  menu.querySelectorAll('a, .btn-logout').forEach(function (el) {
-    el.addEventListener('click', function () {
-      menu.classList.remove('is-open');
-      toggle.classList.remove('is-open');
-      toggle.setAttribute('aria-expanded', 'false');
-    });
-  });
+            // Tutup menu jika link diklik
+            menu.querySelectorAll('a, .btn-logout').forEach(function (el) {
+                el.addEventListener('click', function () {
+                    menu.classList.remove('is-open');
+                    toggle.classList.remove('is-open');
+                    toggle.setAttribute('aria-expanded', 'false');
+                });
+            });
 
-  // Tutup menu jika klik di luar area header
-  document.addEventListener('click', function (e) {
-    if (!menu.classList.contains('is-open')) return;
-    if (e.target.closest('.header')) return;
-    menu.classList.remove('is-open');
-    toggle.classList.remove('is-open');
-    toggle.setAttribute('aria-expanded', 'false');
-  });
-})();
-        document.getElementById('logoutBtn').addEventListener('click', function() {
-            localStorage.removeItem('isLoggedIn');
-            window.location.href = 'index.html';
-        });
+            // Tutup menu jika klik di luar area header
+            document.addEventListener('click', function (e) {
+                if (!menu.classList.contains('is-open')) return;
+                if (e.target.closest('.header')) return;
+                menu.classList.remove('is-open');
+                toggle.classList.remove('is-open');
+                toggle.setAttribute('aria-expanded', 'false');
+            });
+        })();
+
+        // --- 2. LOGIKA TOMBOL LOGOUT ---
+        const logoutBtn = document.getElementById('logoutBtn');
+        if (logoutBtn) {
+            logoutBtn.addEventListener('click', function(e) {
+                e.preventDefault(); // Mencegah perilaku default tombol
+                
+                // Hapus status login dari localStorage
+                localStorage.removeItem('isLoggedIn');
+                
+                // Redirect kembali ke halaman login (index.html)
+                window.location.href = 'index.html';
+            });
+        }
     </script>
 </body>
 </html>

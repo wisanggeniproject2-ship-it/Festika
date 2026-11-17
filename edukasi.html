@@ -8,38 +8,38 @@
 </head>
 <body>
     <header class="header">
-  <div class="container">
-    
-    <!-- 1. BAGIAN KIRI (LOGO & BRAND) -->
-    <div class="nav-brand">
-      <div class="logo">
-        <!-- Ganti src dengan path logo kamu yang benar -->
-        <img src="logo.png" alt="Logo T-Rise"> 
-      </div>
-      <div>
-        <div class="brand-name">T-RISE</div>
-        <span class="tagline">Public Speaking & Pengembangan Diri</span>
-      </div>
-    </div>
+        <div class="container">
+            <!-- 1. BAGIAN KIRI (LOGO & BRAND) -->
+            <div class="nav-brand">
+                <div class="logo">
+                    <img src="logo.png" alt="Logo T-Rise"> 
+                </div>
+                <div>
+                    <div class="brand-name">T-RISE</div>
+                    <span class="tagline">Public Speaking & Pengembangan Diri</span>
+                </div>
+            </div>
 
-    <!-- 2. TOMBOL HAMBURGER (WAJIB ADA) -->
-    <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+            <!-- 2. TOMBOL HAMBURGER -->
+            <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
 
-    <!-- 3. MENU NAVIGASI -->
-    <nav class="nav-menu" id="navMenu">
-      <a href="beranda.html" class="nav-link active">Beranda</a>
-      <a href="materi.html" class="nav-link">Materi</a>
-      <a href="quiz.html" class="nav-link">Quiz</a>
-      <a href="edukasi.html" class="nav-link">Edukasi</a>
-      <button class="btn-logout">Logout</button>
-    </nav>
+            <!-- 3. MENU NAVIGASI -->
+            <nav class="nav-menu" id="navMenu">
+                <a href="beranda.html" class="nav-link">Beranda</a>
+                <a href="materi.html" class="nav-link">Materi</a>
+                <a href="quiz.html" class="nav-link">Quiz</a>
+                <!-- Class active dipindah ke Edukasi -->
+                <a href="edukasi.html" class="nav-link active">Edukasi</a>
+                <!-- Tambahkan id="logoutBtn" di sini -->
+                <button class="btn-logout" id="logoutBtn">Logout</button>
+            </nav>
+        </div>
+    </header>
 
-  </div>
-</header>
     <main class="main-content">
         <div class="container">
             <h1 class="page-title">Artikel & Tips Edukasi</h1>
@@ -101,40 +101,48 @@
 
     <script src="protect.js"></script>
     <script>
-             
-(function () {
-  const toggle = document.getElementById('navToggle');
-  const menu = document.getElementById('navMenu');
-  if (!toggle || !menu) return;
+        // --- 1. LOGIKA HAMBURGER MENU (MOBILE) ---
+        (function () {
+            const toggle = document.getElementById('navToggle');
+            const menu = document.getElementById('navMenu');
+            if (!toggle || !menu) return;
 
-  toggle.addEventListener('click', function () {
-    const open = menu.classList.toggle('is-open');
-    toggle.classList.toggle('is-open', open);
-    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-  });
+            toggle.addEventListener('click', function () {
+                const open = menu.classList.toggle('is-open');
+                toggle.classList.toggle('is-open', open);
+                toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+            });
 
-  // Tutup menu jika link diklik
-  menu.querySelectorAll('a, .btn-logout').forEach(function (el) {
-    el.addEventListener('click', function () {
-      menu.classList.remove('is-open');
-      toggle.classList.remove('is-open');
-      toggle.setAttribute('aria-expanded', 'false');
-    });
-  });
+            // Tutup menu jika link diklik
+            menu.querySelectorAll('a, .btn-logout').forEach(function (el) {
+                el.addEventListener('click', function () {
+                    menu.classList.remove('is-open');
+                    toggle.classList.remove('is-open');
+                    toggle.setAttribute('aria-expanded', 'false');
+                });
+            });
 
-  // Tutup menu jika klik di luar area header
-  document.addEventListener('click', function (e) {
-    if (!menu.classList.contains('is-open')) return;
-    if (e.target.closest('.header')) return;
-    menu.classList.remove('is-open');
-    toggle.classList.remove('is-open');
-    toggle.setAttribute('aria-expanded', 'false');
-  });
-})();
-        document.getElementById('logoutBtn').addEventListener('click', function() {
-            localStorage.removeItem('isLoggedIn');
-            window.location.href = 'index.html';
-        });
+            // Tutup menu jika klik di luar area header
+            document.addEventListener('click', function (e) {
+                if (!menu.classList.contains('is-open')) return;
+                if (e.target.closest('.header')) return;
+                menu.classList.remove('is-open');
+                toggle.classList.remove('is-open');
+                toggle.setAttribute('aria-expanded', 'false');
+            });
+        })();
+
+        // --- 2. LOGIKA TOMBOL LOGOUT ---
+        const logoutBtn = document.getElementById('logoutBtn');
+        if (logoutBtn) {
+            logoutBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                // Hapus status login
+                localStorage.removeItem('isLoggedIn');
+                // Kembali ke halaman index (login)
+                window.location.href = 'index.html';
+            });
+        }
     </script>
 </body>
 </html>
